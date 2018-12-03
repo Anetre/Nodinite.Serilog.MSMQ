@@ -12,9 +12,9 @@ namespace Nodinite.Serilog.MSMQ
 {
     public static class NodiniteMsmqSinkExtensions
     {
-        public static LoggerConfiguration NodiniteApiSink(
+        public static LoggerConfiguration NodiniteMsmqSink(
                   this LoggerSinkConfiguration loggerConfiguration,
-                  string NodiniteApiUrl,
+                  NodiniteMsmqSettings MsmqSettings,
                   NodiniteLogEventSettings Settings,
                   IFormatProvider formatProvider = null,
                   LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum)
@@ -22,7 +22,7 @@ namespace Nodinite.Serilog.MSMQ
             if (loggerConfiguration == null)
                 throw new ArgumentNullException("loggerConfiguration");
 
-            return loggerConfiguration.Sink(new NodiniteApiSink(NodiniteApiUrl, Settings, formatProvider), restrictedToMinimumLevel);
+            return loggerConfiguration.Sink(new NodiniteMsmqSink(MsmqSettings, Settings, formatProvider), restrictedToMinimumLevel);
         }
     }
 }

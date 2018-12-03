@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nodinite.Serilog.MSMQ", "Nodinite.Serilog.MSMQ\Nodinite.Serilog.MSMQ.csproj", "{32147650-D3B1-4617-97E5-D31F784A82C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nodinite.Serilog.Msmq.Tests", "Nodinite.Serilog.Msmq.TEsts\Nodinite.Serilog.Msmq.Tests.csproj", "{22BCF991-6075-4568-8EE6-11957A2444D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{32147650-D3B1-4617-97E5-D31F784A82C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32147650-D3B1-4617-97E5-D31F784A82C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32147650-D3B1-4617-97E5-D31F784A82C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22BCF991-6075-4568-8EE6-11957A2444D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22BCF991-6075-4568-8EE6-11957A2444D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22BCF991-6075-4568-8EE6-11957A2444D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22BCF991-6075-4568-8EE6-11957A2444D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

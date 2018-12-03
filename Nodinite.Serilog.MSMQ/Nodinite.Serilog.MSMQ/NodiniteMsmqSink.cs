@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Messaging;
 using Nodinite.Serilog.Models;
 using Serilog.Core;
 using Serilog.Events;
@@ -8,12 +9,12 @@ namespace Nodinite.Serilog.MSMQ
     public class NodiniteMsmqSink : ILogEventSink
     {
         private readonly IFormatProvider _formatProvider;
-        private readonly string _apiUrl;
+        private readonly NodiniteMsmqSettings _msmqSettings;
         private readonly NodiniteLogEventSettings _settings;
 
-        public NodiniteMsmqSink(string apiUrl, NodiniteLogEventSettings settings, IFormatProvider formatProvider)
+        public NodiniteMsmqSink(NodiniteMsmqSettings msmqSettings, NodiniteLogEventSettings settings, IFormatProvider formatProvider)
         {
-            _apiUrl = apiUrl;
+            _msmqSettings = msmqSettings;
             _settings = settings;
             _formatProvider = formatProvider;
 
@@ -33,7 +34,9 @@ namespace Nodinite.Serilog.MSMQ
 
         public void LogMessage(NodiniteLogEvent logEvent)
         {
-            // post message to msmq
+            MessageQueue messageQueue = messageQueue = new MessageQueue(_msmqSettings.QueueName);
+            messageQueue.Label = "Nodinite Queue";
+            messageQueue.Send(logEvent, "Nodinite Log Event");
         }
     }
 }
