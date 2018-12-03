@@ -16,7 +16,7 @@ namespace Nodinite.Serilog.Msmq.TEsts
         {
             var settings = new NodiniteLogEventSettings()
             {
-                LogAgentValueId = 503,
+                LogAgentValueId = 504,
                 EndPointDirection = 0,
                 EndPointTypeId = 0,
                 EndPointUri = "Nodinite.Serilog.ApiSink.Tests.Serilog",

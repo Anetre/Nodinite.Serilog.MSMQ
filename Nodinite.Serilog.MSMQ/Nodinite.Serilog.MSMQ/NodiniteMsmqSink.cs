@@ -1,6 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Messaging;
+using System.Text;
+using Newtonsoft.Json;
 using Nodinite.Serilog.Models;
+using Nodinite.Serilog.MSMQ.Helpers;
 using Serilog.Core;
 using Serilog.Events;
 
@@ -34,9 +38,12 @@ namespace Nodinite.Serilog.MSMQ
 
         public void LogMessage(NodiniteLogEvent logEvent)
         {
-            MessageQueue messageQueue = messageQueue = new MessageQueue(_msmqSettings.QueueName);
+            MessageQueue messageQueue = new MessageQueue(_msmqSettings.QueueName);
             messageQueue.Label = "Nodinite Queue";
-            messageQueue.Send(logEvent, "Nodinite Log Event");
+            
+            messageQueue.Formatter = new JsonMessageFormatter(Encoding.UTF8);
+
+            messageQueue.Send(JsonConvert.SerializeObject(logEvent), "Nodinite Log Event");
         }
     }
 }
